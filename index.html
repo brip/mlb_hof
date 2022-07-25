@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{url_for('static', filename= 'css/styles.css')}}" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -64,39 +64,39 @@
                     <div class="col-lg-8">
                         <h3>Correlation of the Variables</h3>
                         <p class="lead">We can see that there is high positive correlation in the upper left corner of the heatmap. All of these are statistics that increase the longer a player has been in the league. The last row or the last column shows the correlation with the target class, "hof." I will be trying to predict this from the other statistics. Whether a player bats left, right handed or both does not appear very correlated with the target class. These variables could be dropped before inputting the data to the models, though they were a late addition in an attempt to improve accuracy after initial runs with purely hitting statistics. The models seen later were run with data that includes the batting side and throwing arm of the player, as well as their most frequent position (not shown in this correlation heat map).  </p>
-                    <iframe width="850" height="550" title="Correlation Table of Features" src="{{url_for('static', filename='corr_heatmap.html')}}")></iframe> <br>
+                    <iframe width="850" height="550" title="Correlation Table of Features" src="static/corr_heatmap.html")></iframe> <br>
                     </div>
                     <div class="col-lg-8">
                         <h3>Hall of Famers by Position</h3>
                         <p class="lead">Exploring the data, I found that the batting data includes hitting statistics for pitchers. Because I am only attempting to classify position players, I will drop pitchers from the data set. We cannot predict a pitcher being inducted to the hall of fame through batting statistics. To predict on pitchers, we would need a separate model trained on pitching statistics. From this plot, there also seems to be an imbalance in hall of famers by position, so we will include this data when training the models. </p>
-                        <iframe width="700" height="600" title="Class Counts" src="{{url_for('static', filename='hof_by_pos.html')}}"></iframe> <br><br>
+                        <iframe width="700" height="600" title="Class Counts" src="static/hof_by_pos.html"></iframe> <br><br>
                     </div>
                     <div class="col-lg-8">
                         <h3>Hall of Famers by Years Played</h3>
                         <p class="lead">At this point, it is important to note that I have already gone through the data to determine player eligibility. To be eligible to be voted into the Hall of Fame, a player needs ten years of MLB service. They also must have been retired from the league for five years. All ineligible players have been dropped. <br><br> Separately, we see that the majority of Hall of Famers played well more than ten years. We can see from the pie chart, going counter-clockwise that the wedges increase in size with the number of years played. They become smaller again for the few players who had very long careers (24+ seasons). </p>
-                        <iframe width="500" height="550" title="HOFer Years Played" src="{{url_for('static', filename= 'hof_pie_years.html')}}"></iframe>  
+                        <iframe width="500" height="550" title="HOFer Years Played" src="static/hof_pie_years.html"></iframe>  
                         <br>     
                     </div>
                     <div class="col-lg-8">
                         <h3>Non Hall of Famers by Years Played</h3>
                         <p class="lead">On par with the previous plot, those who were eligible and did not get inducted to the Hall of Fame were more likely to have careers closer to ten years.</p>
-                    <iframe width="500" height="550" title="Non-HOFer Years Played" src="{{url_for('static', filename= 'not_hof_pie_years.html')}}"></iframe> <br>
+                    <iframe width="500" height="550" title="Non-HOFer Years Played" src="static/not_hof_pie_years.html"></iframe> <br>
                     </div>
                     <div class="col-lg-8">
                         <h3>Hits and At-Bats Correlation</h3>
                         <p class="lead">We see there is a very high correlation between hits and at Bats, I will be computing the batting average of the players and dropping the at-bats variable. Batting average is a much more important statistic in determining a HOFer than number of at bats. <br><br> As an aside, we can see the hall of famers emerging with more hits and at bats. We can see several outliers who statistically seem that they should be hall of famers. One, with the most hits and at bats, is Pete Rose, whose use of steroids lost him many votes. Another is Derek Jeter, who was in fact inducted to the hall of fame in 2020. When looking back at the Hall of Fame data frame, I noticed it was not updated for the 2020 inductees. Visualizing the data is very effective in realizing missing data, and finding peculiarities. <br><br> This plot also made me realize that pitchers were included in the batting statistics and needed to be dropped. We see that there are players with very few hits and at-bats that are labeled as hall of famers. Including these data points in our training data would be very confusing for our models. <br><br> See if you can find your favorite player by hovering over the data! </p>
-                        <iframe width="1020" height="620" title="{{url_for('static', filename= 'H_AB_scatter.html')}}"></iframe> <br><br>
+                        <iframe width="1020" height="620" title="H-AB corr" src="static/H_AB_scatter.html"></iframe> <br><br>
                     </div>
                     <div class="col-lg-8">
                         <h3>Hits and Batting Average Correlation</h3>
                         <p class="lead">We see a similar trend as with Hits/AB correlation. We see the pitchers are outliers with low averages, labeled as HOFers. </p>
-                        <iframe width="1020" height="620" title="{{url_for('static', filename= 'H_AVG_scatter.html')}}"></iframe> <br><br>
+                        <iframe width="1020" height="620" title="H-BA corr" src="static/H_AVG_scatter.html"></iframe> <br><br>
                     </div>
                     <div class="col-lg-8">
                         <h3>Class Imbalance</h3>
                         <p class="lead">We have a high class imbalance, as only 162 of the 2262 players included in our final data set are Hall of Famers. We will need to consider this when deciding on a metric to assess our models.</p>
-                        <iframe width="400" height="400" title="{{url_for('static', filename= 'hof_counts.html')}}"></iframe>
-                        <iframe width="400" height="400" title="HOF Pie" src="{{url_for('static', filename= 'hof_pie.html')}}"></iframe>
+                        <iframe width="400" height="400" src="static/hof_counts.html')}}"></iframe>
+                        <iframe width="400" height="400" title="HOF Pie" src="static/hof_pie.html"></iframe>
                         <br>
                 </div>
             </div>
@@ -123,57 +123,57 @@
                     <div class="col-lg-8">
                         <h2>Logistic Regression: Explanation</h2>
                         <p class="lead">First, I try logistic regression because our classification is binary. Logistic regression begins with a best-fit line as in linear regression. Then, a sigmoid function squeezes the predicted value between 0 and 1, indicating a probability. If this value is above our threshold, it will be classified as one class, otherwise it will be classified as the other. </p>
-                        <img src="{{url_for('static', filename= 'images/lr_img.png')}}" class="page-image" />
+                        <img src="assets/images/lr_img.png')}}" class="page-image" />
                     </div>
 
                     <div class="col-lg-8">
                         <h2>Logistic Regression: Results</h2>
                         <h3>Accuracy</h3>
-                        <iframe width="800" height="400" title="Logistic Regression Accuracy Confusion Matrix" src="{{url_for('static', filename= 'lr_acc.html')}}"></iframe>
+                        <iframe width="800" height="400" title="Logistic Regression Accuracy Confusion Matrix" src="static/lr_acc.html"></iframe>
                         <p class="lead">Accuracy of 95.4% and 46.8% recall on the training data. </p>
                         <h3>Recall</h3>
-                        <iframe width="800" height="400" title="Logistic Regression Recall Confusion Matrix" src="{{url_for('static', filename= 'lr_recall.html')}}"></iframe>
+                        <iframe width="800" height="400" title="Logistic Regression Recall Confusion Matrix" src="static/lr_recall.html"></iframe>
                         <p class="lead">When optimizing for recall, the grids earch has found parameters that bring recall all the way to 89.4%. But when we call at the other entries of the heat map, we see something weird. The threshold was set in such a way that the model is too likely to predict a given player to be a Hall of Famer. Over 3x the number of Hall of Famers in the data were predicted to be Hall of Famers. Now, we are getting way too many false positives.</p>
                     </div>
                     <div class="col-lg-8">
                         <h2>K Nearest Neighbors: Explanation</h2>
                         <p class="lead">K Nearest Neighbors looks at the k closest data points in the high dimensional space of our variables. It takes a majority vote of the class labels of those k points to classify an unseen data point.</p>
-                        <img src="{{url_for('static', filename= 'images/knn_img.png')}}" class="page-image" width="500"/>
+                        <img src="assets/images/knn_img.png" class="page-image" width="500"/>
                     </div>
                     <div class="col-lg-8">
                         <h2>K Nearest Neighbors: Results</h2>
                         <h3>Accuracy</h3>
-                        <iframe width="800" height="400" title="KNN Accuracy Confusion Matrix" src="{{url_for('static', filename= 'knn_acc.html')}}"></iframe>
+                        <iframe width="800" height="400" title="KNN Accuracy Confusion Matrix" src="static/knn_acc.html"></iframe>
                         <p class="lead">Accuracy of 94.1% and 23.4% recall on the training data.</p>
                         <h3>Recall</h3>
                         <p class="lead">Here we have a confusion matrix with the results of the linear regression applied on our testing data set. A confusion matrix for a classification problem tells us the number of correct and incorrect predictions for every class (for example wealthy). For example, the model may have classified 10 countries with average GDP as average and classified 2 countries with average GDP incorrectly, shown in the below confusion matrix. Linear regression performed exceptionally well on countries with average GDP.</p>
-                        <iframe width="800" height="400" title="KNN Recall Confusion Matrix" src="{{url_for('static', filename= 'knn_recall.html')}}"></iframe>
+                        <iframe width="800" height="400" title="KNN Recall Confusion Matrix" src="static/knn_recall.html"></iframe>
                         <p class="lead"> Our recall is now 34.0%. We achieved over a 10% improvement using a grid search to optimize recall, but the score still not very good.</p>
                     </div>
                     <div class="col-lg-8">
                         <h2>Support Vector Machine: Explanation</h2>
                         <p class="lead">SVM creates a hyperplane in the high-dimensional space of features. The support vectors are the nearest data points on either side of the plane. SVM attempts to maximize the space between the hyperplane and the support vectors. That distance is called the margin. </p>
-                        <img src="{{url_for('static', filename= 'images/svm_img.png')}}" class="page-image" width="500"/>
+                        <img src="assets/images/svm_img.png')}}" class="page-image" width="500"/>
                     </div>
                     <div class="col-lg-8">
                         <h2>Support Vector Machine: Results</h2>
                         <h3>Accuracy</h3>
-                        <iframe width="800" height="400" title="SVM Accuracy Confusion Matrix" src="{{url_for('static', filename= 'svm_acc.html')}}"></iframe>
+                        <iframe width="800" height="400" title="SVM Accuracy Confusion Matrix" src="static/svm_acc.html"></iframe>
                         <p class="lead">Accuracy of 95.6% and 42.6% recall on the training data</p>
                         <h3>Recall</h3>
-                        <iframe width="800" height="400" title="SVM Recall Confusion Matrix" src="{{url_for('static', filename= 'svm_recall.html')}}"></iframe>
+                        <iframe width="800" height="400" title="SVM Recall Confusion Matrix" src="static/svm_recall.html"></iframe>
                         <p class="lead">Our recall slightly improves to 44.7%. </p>
                     </div>
                     <div class="col-lg-8">
                         <h2>Neural Networks: Explanation</h2>
                         <p class="lead">Because of the complexity of the problem, a neural network may be the best solution. There are so many variables in the input data, and no clear definition of what makes a player a hall of famer. A neural network works through a series of layers from the input layer to the output. Each layer has a set of nodes with weights and biases to transform the input from the previous layer. It learns through backpropagation, going from its prediction back to the input layer, adjusting weights and biases for each training example. <br><br> I added a very simple neural network as an afterthought and there is much room for improvement.</p>
-                        <img src="{{url_for('static', filename= 'images/nn_img.png')}}" class="page-image" width="500"/>
+                        <img src="assets/images/nn_img.png')}}" class="page-image" width="500"/>
                     </div>
 
                     <div class="col-lg-8">
                         <h2>Neutral Networks: Results</h2>
                         <h3>Accuracy</h3>
-                        <iframe width="800" height="400" title="Neural Network Confusion Matrix" src="{{url_for('static', filename= 'nn_acc.html')}}"></iframe>
+                        <iframe width="800" height="400" title="Neural Network Confusion Matrix" src="static/nn_acc.html')}}"></iframe>
                         <p class="lead">We get a recall of 44.7%, the same as for SVM when optimizing parameters for recall. This is not bad considering how little time was spent developing the neural network, only two layers. There is certainly room for improvement here.</p>
                     </div>
                 </div>

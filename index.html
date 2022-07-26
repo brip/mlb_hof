@@ -95,7 +95,7 @@
                     <div class="col-lg-8">
                         <h3>Class Imbalance</h3>
                         <p class="lead">We have a high class imbalance, as only 162 of the 2262 players included in our final data set are Hall of Famers. We will need to consider this when deciding on a metric to assess our models.</p>
-                        <iframe width="400" height="400" src="static/hof_counts.html')}}"></iframe>
+                        <iframe width="400" height="400" src="static/hof_counts.html"></iframe>
                         <iframe width="400" height="400" title="HOF Pie" src="static/hof_pie.html"></iframe>
                         <br>
                 </div>
@@ -123,7 +123,7 @@
                     <div class="col-lg-8">
                         <h2>Logistic Regression: Explanation</h2>
                         <p class="lead">First, I try logistic regression because our classification is binary. Logistic regression begins with a best-fit line as in linear regression. Then, a sigmoid function squeezes the predicted value between 0 and 1, indicating a probability. If this value is above our threshold, it will be classified as one class, otherwise it will be classified as the other. </p>
-                        <img src="assets/images/lr_img.png')}}" class="page-image" />
+                        <img src="assets/images/lr_img.png" class="page-image" />
                     </div>
 
                     <div class="col-lg-8">
@@ -153,7 +153,7 @@
                     <div class="col-lg-8">
                         <h2>Support Vector Machine: Explanation</h2>
                         <p class="lead">SVM creates a hyperplane in the high-dimensional space of features. The support vectors are the nearest data points on either side of the plane. SVM attempts to maximize the space between the hyperplane and the support vectors. That distance is called the margin. </p>
-                        <img src="assets/images/svm_img.png')}}" class="page-image" width="500"/>
+                        <img src="assets/images/svm_img.png" class="page-image" width="500"/>
                     </div>
                     <div class="col-lg-8">
                         <h2>Support Vector Machine: Results</h2>
@@ -167,13 +167,13 @@
                     <div class="col-lg-8">
                         <h2>Neural Networks: Explanation</h2>
                         <p class="lead">Because of the complexity of the problem, a neural network may be the best solution. There are so many variables in the input data, and no clear definition of what makes a player a hall of famer. A neural network works through a series of layers from the input layer to the output. Each layer has a set of nodes with weights and biases to transform the input from the previous layer. It learns through backpropagation, going from its prediction back to the input layer, adjusting weights and biases for each training example. <br><br> I added a very simple neural network as an afterthought and there is much room for improvement.</p>
-                        <img src="assets/images/nn_img.png')}}" class="page-image" width="500"/>
+                        <img src="assets/images/nn_img.png" class="page-image" width="500"/>
                     </div>
 
                     <div class="col-lg-8">
                         <h2>Neutral Networks: Results</h2>
                         <h3>Accuracy</h3>
-                        <iframe width="800" height="400" title="Neural Network Confusion Matrix" src="static/nn_acc.html')}}"></iframe>
+                        <iframe width="800" height="400" title="Neural Network Confusion Matrix" src="static/nn_acc.html"></iframe>
                         <p class="lead">We get a recall of 44.7%, the same as for SVM when optimizing parameters for recall. This is not bad considering how little time was spent developing the neural network, only two layers. There is certainly room for improvement here.</p>
                     </div>
                 </div>
